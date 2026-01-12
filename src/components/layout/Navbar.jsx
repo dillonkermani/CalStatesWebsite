@@ -70,29 +70,24 @@ function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3 group">
               {/* Bear Logo */}
-              <img
-                src="/images/banner.png"
+              <motion.img
+                src="/images/logo.png"
                 alt="Cal States Logo"
-                className="h-10 md:h-12 w-auto object-contain"
-                onError={(e) => { e.target.style.display = 'none' }}
+                className="h-12 md:h-14 w-auto object-contain"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               />
               <motion.div
-                className="relative"
+                className="relative hidden sm:block"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
-                <span className="font-display text-xl md:text-2xl font-bold tracking-tight">
+                <span className="font-display text-lg md:text-xl font-bold tracking-tight">
                   <span className="bg-gradient-to-r from-cal-red via-cal-red-light to-cal-red bg-clip-text text-transparent">
                     CAL STATES
                   </span>
                   <span className={`ml-2 ${isDark ? 'text-white' : 'text-surface-900'}`}>2026</span>
                 </span>
-                <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-cal-red via-cal-red-light to-cal-red"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.div>
             </Link>
 

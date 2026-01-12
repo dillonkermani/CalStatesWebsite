@@ -41,10 +41,17 @@ function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
             {/* Brand Section */}
             <div className="lg:col-span-1">
-              <Link to="/" className="inline-block mb-4">
+              <Link to="/" className="inline-flex items-center gap-3 mb-4">
+                <motion.img
+                  src="/images/logo.png"
+                  alt="Cal States Logo"
+                  className="h-16 w-auto object-contain"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                />
                 <motion.div
                   whileHover={{ scale: 1.02 }}
-                  className="font-display text-2xl font-bold tracking-tight"
+                  className="font-display text-xl font-bold tracking-tight"
                 >
                   <span className="bg-gradient-to-r from-cal-red via-cal-red-light to-cal-red bg-clip-text text-transparent">
                     CAL STATES

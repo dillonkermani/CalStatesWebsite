@@ -131,12 +131,19 @@ function MobileMenu({ isOpen, onClose, navLinks }) {
             <div className={`flex items-center justify-between p-6 border-b ${
               isDark ? 'border-white/5' : 'border-light-300'
             }`}>
-              <span className="font-display text-lg font-bold">
-                <span className="bg-gradient-to-r from-cal-red via-cal-red-light to-cal-red bg-clip-text text-transparent">
-                  CAL STATES
+              <div className="flex items-center gap-3">
+                <img
+                  src="/images/logo.png"
+                  alt="Cal States Logo"
+                  className="h-10 w-auto object-contain"
+                />
+                <span className="font-display text-lg font-bold">
+                  <span className="bg-gradient-to-r from-cal-red via-cal-red-light to-cal-red bg-clip-text text-transparent">
+                    CAL STATES
+                  </span>
+                  <span className={`ml-2 ${isDark ? 'text-white' : 'text-surface-900'}`}>2026</span>
                 </span>
-                <span className={`ml-2 ${isDark ? 'text-white' : 'text-surface-900'}`}>2026</span>
-              </span>
+              </div>
 
               <motion.button
                 whileHover={{ scale: 1.1, rotate: 90 }}
