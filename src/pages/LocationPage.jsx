@@ -125,19 +125,15 @@ function LocationPage() {
             {/* Map */}
             <AnimatedSection delay={0.2}>
               <GlowCard glowColor="grass" className="h-full overflow-hidden">
-                <div className="aspect-square lg:aspect-auto lg:h-full min-h-[400px]">
-                  <iframe
-                    src={googleMapsEmbedUrl}
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, filter: isDark ? 'invert(90%) hue-rotate(180deg) contrast(0.9)' : 'none' }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Chico Women's Club Map"
-                    className="rounded-2xl"
-                  />
-                </div>
+                <iframe
+                  src={googleMapsEmbedUrl}
+                  className="w-full min-h-[400px] lg:min-h-[500px] block"
+                  style={{ border: 0, filter: isDark ? 'invert(90%) hue-rotate(180deg) contrast(0.9)' : 'none', height: '100%' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Chico Women's Club Map"
+                />
               </GlowCard>
             </AnimatedSection>
           </div>
@@ -212,25 +208,18 @@ function LocationPage() {
           <AnimatedSection delay={0.1}>
             <GlowCard glowColor="cal">
               <div className="p-8 md:flex items-center gap-8">
-                {/* Image placeholder */}
+                {/* Museum Image */}
                 <div className="md:w-1/3 mb-6 md:mb-0">
                   <div className={`aspect-square rounded-xl overflow-hidden border ${
                     isDark
-                      ? 'bg-gradient-to-br from-cal-red/20 to-sunset-purple/20 border-cal-red/30'
-                      : 'bg-gradient-to-br from-cal-red/10 to-cal-red/5 border-cal-red/20'
+                      ? 'border-cal-red/30'
+                      : 'border-cal-red/20'
                   }`}>
-                    <div className="w-full h-full flex items-center justify-center">
-                      <div className="text-center p-6">
-                        <div className={`w-20 h-20 mx-auto mb-4 rounded-full flex items-center justify-center ${
-                          isDark
-                            ? 'bg-cal-red/10 border border-cal-red/30'
-                            : 'bg-cal-red/10'
-                        }`}>
-                          <Star className="w-10 h-10 text-cal-red" />
-                        </div>
-                        <span className="text-cal-red font-display font-bold">Bonus Attraction</span>
-                      </div>
-                    </div>
+                    <img
+                      src="https://explore-butte.transforms.svdcdn.com/production/images/Arts-and-Culture/Yo-Yo-Museum/National-Yo-Yo-Museum_2019_Chico_4_OPTIMIZED.jpg?w=1200&h=630&q=82&auto=format&fit=crop&crop=focalpoint&fp-x=0.2983&fp-y=0.4213&dm=1708982963&s=3f7c850fc61548b7a958e4d7c60115be"
+                      alt="National Yo-Yo Museum"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
 

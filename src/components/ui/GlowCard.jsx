@@ -57,7 +57,7 @@ function GlowCard({ children, className, glowColor = 'cal', intensity = 'normal'
       {/* Main card container */}
       <div
         className={clsx(
-          'relative rounded-2xl overflow-hidden',
+          'relative rounded-2xl overflow-hidden h-full',
           'transition-all duration-300',
           // Background - solid and opaque for readability
           isDark ? 'bg-surface-800' : 'bg-white',
@@ -83,7 +83,7 @@ function GlowCard({ children, className, glowColor = 'cal', intensity = 'normal'
         )}
 
         {/* Content */}
-        <div className="relative z-10">{children}</div>
+        <div className="relative z-10 h-full">{children}</div>
       </div>
     </motion.div>
   )

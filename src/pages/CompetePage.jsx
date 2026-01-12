@@ -73,21 +73,20 @@ function CompetePage() {
             <div className="relative rounded-2xl overflow-hidden">
               <div className={`absolute inset-0 ${
                 isDark
-                  ? 'bg-gradient-to-r from-bear-light/20 via-cal-red/20 to-bear-medium/20'
-                  : 'bg-gradient-to-r from-bear-light/10 via-cal-red/10 to-bear-medium/10'
+                  ? 'bg-gradient-to-r from-grass/20 via-grass-dark/20 to-grass/20'
+                  : 'bg-gradient-to-r from-grass/10 via-grass-dark/10 to-grass/10'
               }`} />
               <div className={`relative p-6 md:p-8 text-center ${
                 isDark ? 'glass-strong' : 'bg-white/90 border border-light-300 rounded-2xl'
               }`}>
                 <div className="flex items-center justify-center gap-3 mb-3">
-                  <AlertCircle className="w-6 h-6 text-bear-light" />
-                  <span className="text-lg font-display font-bold text-bear-light uppercase tracking-wider">
-                    Registration Closed
+                  <Clock className="w-6 h-6 text-grass" />
+                  <span className="text-lg font-display font-bold text-grass uppercase tracking-wider">
+                    Registration Opening Soon
                   </span>
                 </div>
                 <p className={isDark ? 'text-white/70' : 'text-surface-600'}>
-                  The registration deadline was <span className={`font-semibold ${isDark ? 'text-white' : 'text-surface-900'}`}>April 23rd, 2026</span>.
-                  Thank you to all who registered!
+                  Registration for Cal States 2026 will be opening soon. Check back for updates!
                 </p>
                 <div className={`mt-4 flex items-center justify-center gap-2 text-sm ${
                   isDark ? 'text-white/50' : 'text-surface-500'
