@@ -8,10 +8,10 @@ export function ThemeProvider({ children }) {
     const stored = localStorage.getItem('theme')
     if (stored) return stored
     // Check system preference
-    if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-      return 'light'
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      return 'dark'
     }
-    return 'dark'
+    return 'light'
   })
 
   useEffect(() => {
@@ -27,12 +27,12 @@ export function ThemeProvider({ children }) {
 
   // Listen for system preference changes
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: light)')
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
     const handleChange = (e) => {
       const stored = localStorage.getItem('theme')
       // Only auto-switch if user hasn't manually set preference
       if (!stored) {
-        setTheme(e.matches ? 'light' : 'dark')
+        setTheme(e.matches ? 'dark' : 'light')
       }
     }
     mediaQuery.addEventListener('change', handleChange)
