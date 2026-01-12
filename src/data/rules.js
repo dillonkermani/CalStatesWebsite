@@ -46,7 +46,7 @@ export const divisions = [
 
 export const generalRules = [
   "All competitors must check in by 10:30 AM on competition day",
-  "Music must be uploaded before the registration deadline (April 9th, 2026 at midnight PST)",
+  "Music must be uploaded before the registration deadline (April 23rd, 2026 at midnight PST)",
   "All music must be deemed appropriate for all audiences - inappropriate selections result in disqualification",
   "Competitors cannot enter both Futures and 1A Championship",
   "Single entry per division only",
@@ -79,12 +79,12 @@ export const multiDivisionRules = [
 export const musicRequirements = [
   "MP3 format preferred (320kbps recommended for best quality)",
   "Include your name and division in the filename (e.g., 'JohnDoe_1A.mp3')",
-  "Music must be uploaded before April 9th, 2026 at midnight PST",
+  "Music must be uploaded before April 23rd, 2026 at midnight PST",
   "All music must be family-friendly and appropriate for all audiences",
   "A backup copy will be available at check-in for verification"
 ]
 
 export const venueConsiderations = {
-  title: "Outdoor Venue Conditions",
-  description: "The Chico City Plaza is an outdoor venue. While not known for being particularly windy, wind conditions can affect slack tricks unpredictably. All competitors will experience the same conditions, and judges take environmental factors into account."
+  title: "Indoor Venue",
+  description: "The Chico Women's Club is an indoor venue with climate-controlled conditions and excellent acoustics, providing a consistent environment for all competitors."
 }

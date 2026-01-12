@@ -1,14 +1,14 @@
 export const venue = {
-  name: "Chico City Plaza",
-  address: "4th and Broadway Streets, Chico, CA 95928",
-  description: "An outdoor venue featuring a permanent stage, ample shade trees, and surrounded by shops and restaurants in the heart of Downtown Chico.",
+  name: "Chico Women's Club",
+  address: "592 E 3rd St, Chico, CA 95928",
+  description: "A beautiful historic venue in the heart of Chico, providing an intimate indoor setting perfect for yo-yo competition.",
   features: [
-    "Permanent stage",
-    "Ample shade trees",
-    "Surrounded by shops and restaurants",
+    "Indoor venue",
+    "Climate controlled",
+    "Excellent acoustics",
     "Free spectator seating"
   ],
-  mapUrl: "https://maps.google.com/?q=Chico+City+Plaza+CA",
+  mapUrl: "https://maps.google.com/?q=592+E+3rd+St+Chico+CA+95928",
   images: [
     "/images/chico-plaza-1.jpg",
     "/images/chico-plaza-2.jpg",

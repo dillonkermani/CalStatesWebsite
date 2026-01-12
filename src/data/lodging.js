@@ -2,9 +2,9 @@ export const hotel = {
   name: "DoubleTree by Hilton Chico",
   address: "685 Manzanita Court, Chico, California, 95926",
   phone: "+1 530-345-2491",
-  distance: "5 minute drive from Chico City Plaza",
-  bookingDeadline: "March 12, 2026",
-  bookingDates: "April 10-11, 2026",
+  distance: "5 minute drive from Chico Women's Club",
+  bookingDeadline: "March 26, 2026",
+  bookingDates: "April 24-25, 2026",
   bookingCode: "CDTCYC",
   bookingUrl: "https://www.hilton.com/en/attend-my-event/cicchdt-cyc-ee4f26d8-44a8-4ad2-b7b2-b3de5e29f0e7/",
   features: [
@@ -25,7 +25,7 @@ export const travel = {
   recommendedAirport: "Sacramento International Airport (SMF)",
   alternateAirport: "San Francisco International Airport (SFO)",
   transportation: "Rental car recommended from airport",
-  parking: "Free public parking on Saturdays and Sundays near Chico City Plaza",
+  parking: "Free public parking on Saturdays and Sundays near Chico Women's Club",
   parkingNote: "Street parking also available throughout downtown Chico"
 }
 

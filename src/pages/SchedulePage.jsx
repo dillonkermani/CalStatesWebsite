@@ -89,7 +89,7 @@ function SchedulePage() {
               <GradientText>EVENT SCHEDULE</GradientText>
             </h1>
             <p className={`text-xl md:text-2xl font-mono ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-              April 11, 2026 &bull; Chico City Plaza
+              April 25, 2026 &bull; Chico Women's Club
             </p>
           </AnimatedSection>
         </Container>

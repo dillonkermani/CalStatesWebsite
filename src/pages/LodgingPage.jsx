@@ -342,7 +342,7 @@ function LodgingPage() {
                   <div className={`p-4 rounded-lg ${isDark ? 'bg-surface-700/30' : 'bg-light-100'}`}>
                     <p className={`text-sm mb-2 ${isDark ? 'text-white/40' : 'text-surface-500'}`}>Location</p>
                     <p className={isDark ? 'text-white/80' : 'text-surface-700'}>
-                      Near Chico City Plaza - just steps away from the competition venue
+                      Near Chico Women's Club - just steps away from the competition venue
                     </p>
                   </div>
 

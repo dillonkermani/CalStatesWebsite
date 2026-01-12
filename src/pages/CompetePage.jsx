@@ -86,14 +86,14 @@ function CompetePage() {
                   </span>
                 </div>
                 <p className={isDark ? 'text-white/70' : 'text-surface-600'}>
-                  The registration deadline was <span className={`font-semibold ${isDark ? 'text-white' : 'text-surface-900'}`}>April 9th, 2026</span>.
+                  The registration deadline was <span className={`font-semibold ${isDark ? 'text-white' : 'text-surface-900'}`}>April 23rd, 2026</span>.
                   Thank you to all who registered!
                 </p>
                 <div className={`mt-4 flex items-center justify-center gap-2 text-sm ${
                   isDark ? 'text-white/50' : 'text-surface-500'
                 }`}>
                   <Clock className="w-4 h-4" />
-                  <span>Competition Date: April 12th, 2026</span>
+                  <span>Competition Date: April 25th, 2026</span>
                 </div>
               </div>
             </div>

@@ -118,7 +118,7 @@ function ResultsPage() {
           }`}>
             <div className="w-2 h-2 rounded-full bg-grass animate-pulse" />
             <span className={`text-sm ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-              Results updated April 12, 2026
+              Results updated April 25, 2026
             </span>
           </div>
         </AnimatedSection>

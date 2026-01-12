@@ -39,7 +39,7 @@ function FeatureItem({ feature, isDark }) {
 
 function LocationPage() {
   const { isDark } = useTheme()
-  const googleMapsEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3072.8!2d-121.8406!3d39.7285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808327f07c603a8f%3A0x9f7d6a9c9c9c9c9c!2sChico%20City%20Plaza!5e0!3m2!1sen!2sus!4v1234567890`
+  const googleMapsEmbedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3072.8!2d-121.8406!3d39.7285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808327a5d5c0e8a9%3A0x9f7d6a9c9c9c9c9c!2s592%20E%203rd%20St%2C%20Chico%2C%20CA%2095928!5e0!3m2!1sen!2sus!4v1234567890`
 
   return (
     <motion.div
@@ -57,7 +57,7 @@ function LocationPage() {
               <GradientText>VENUE & LOCATION</GradientText>
             </h1>
             <p className={`text-xl max-w-2xl mx-auto ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-              Join us at the heart of Downtown Chico for an unforgettable day of yo-yo competition
+              Join us at the historic Chico Women's Club for an unforgettable day of yo-yo competition
             </p>
           </AnimatedSection>
         </Container>
@@ -134,7 +134,7 @@ function LocationPage() {
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Chico City Plaza Map"
+                    title="Chico Women's Club Map"
                     className="rounded-2xl"
                   />
                 </div>

@@ -227,7 +227,7 @@ function HeroSection() {
                 : 'bg-white/80 border-light-300 shadow-sm'
             }`}>
               <Calendar className="w-5 h-5 text-cal-red" />
-              <span className="font-medium">April 11, 2026</span>
+              <span className="font-medium">April 25, 2026</span>
             </div>
             <div className={`flex items-center gap-2 px-4 py-2 rounded-full backdrop-blur-sm border ${
               isDark
@@ -235,7 +235,7 @@ function HeroSection() {
                 : 'bg-white/80 border-light-300 shadow-sm'
             }`}>
               <MapPin className="w-5 h-5 text-bear-light" />
-              <span className="font-medium">Chico City Plaza</span>
+              <span className="font-medium">Chico Women's Club</span>
             </div>
           </motion.div>
 
@@ -290,7 +290,7 @@ function AboutSection() {
     {
       icon: Building2,
       title: 'Historic Venue',
-      description: 'Held at the beautiful Chico City Plaza since 1997',
+      description: 'Held at the beautiful Chico Women\'s Club',
       glowColor: 'bear',
     },
     {

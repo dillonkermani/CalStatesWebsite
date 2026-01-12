@@ -2,8 +2,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useCountdown } from '../../hooks/useCountdown'
 import { useTheme } from '../../hooks/useTheme'
 
-// Target date: April 11, 2026 at 10:00 AM PST
-const EVENT_DATE = new Date('2026-04-12T10:00:00-07:00')
+// Target date: April 25, 2026 at 10:00 AM PST
+const EVENT_DATE = new Date('2026-04-25T10:00:00-07:00')
 
 /**
  * Individual flip digit component with animation
@@ -190,7 +190,7 @@ export function CountdownTimer() {
                 transition={{ delay: 0.4 }}
                 className={`text-center ${isDark ? 'text-gray-500' : 'text-surface-500'} text-xs sm:text-sm mt-6 sm:mt-8`}
               >
-                April 11, 2026 at 10:00 AM PST
+                April 25, 2026 at 10:00 AM PST
               </motion.p>
             </>
           )}
