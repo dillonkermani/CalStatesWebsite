@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Dark mode (default) */
+  body {
+    @apply bg-surface-900 text-white font-body antialiased;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Light mode */
+  body.light {
+    @apply bg-light-100 text-surface-900;
+  }
+
+  /* Wavy line background texture - Dark mode */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 0, 50 10 T 100 10' stroke='%23333' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+    background-size: 200px 40px;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Light mode wavy background */
+  body.light::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10 Q 25 0, 50 10 T 100 10' stroke='%23d4d4d4' stroke-width='0.5' fill='none'/%3E%3C/svg%3E");
+    opacity: 0.4;
+  }
+
+  body > #root {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Selection colors */
+  ::selection {
+    @apply bg-cal-red/30 text-white;
+  }
+
+  body.light ::selection {
+    @apply bg-cal-red/20 text-surface-900;
+  }
+}
+
+/* Custom utilities */
+@layer utilities {
+  .gradient-text {
+    @apply bg-gradient-cal bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  .gradient-text-nature {
+    @apply bg-gradient-nature bg-clip-text text-transparent;
+  }
+
+  .gradient-text-mixed {
+    @apply bg-gradient-mixed bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+
+  /* Glass effects - Dark mode */
+  .glass {
+    @apply bg-surface-800/80 backdrop-blur-xl border border-white/10;
+  }
+
+  .glass-strong {
+    @apply bg-surface-800/90 backdrop-blur-2xl border border-white/15;
+  }
+
+  .glass-dark {
+    @apply bg-surface-900/95 backdrop-blur-xl border border-surface-600/50;
+  }
+
+  /* Glass effects - Light mode */
+  body.light .glass {
+    @apply bg-white/90 backdrop-blur-xl border border-light-300;
+  }
+
+  body.light .glass-strong {
+    @apply bg-white/95 backdrop-blur-2xl border border-light-300;
+  }
+
+  body.light .glass-dark {
+    @apply bg-light-100/95 backdrop-blur-xl border border-light-300;
+  }
+
+  .neon-border {
+    @apply relative;
+  }
+
+  .neon-border::before {
+    content: '';
+    @apply absolute inset-0 rounded-inherit opacity-0 transition-opacity duration-300;
+    background: linear-gradient(135deg, #c41e3a, #7cb518);
+    padding: 1px;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+  }
+
+  .neon-border:hover::before {
+    @apply opacity-100;
+  }
+
+  .text-shadow-glow {
+    text-shadow: 0 0 20px rgba(196, 30, 58, 0.5);
+  }
+
+  body.light .text-shadow-glow {
+    text-shadow: none;
+  }
+
+  .text-shadow-white {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  }
+
+  body.light .text-shadow-white {
+    text-shadow: none;
+  }
+
+  .animate-in {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Geometric pattern overlay */
+  .geo-pattern {
+    background-image:
+      linear-gradient(30deg, transparent 40%, rgba(196, 30, 58, 0.03) 40%, rgba(196, 30, 58, 0.03) 60%, transparent 60%),
+      linear-gradient(150deg, transparent 40%, rgba(124, 181, 24, 0.03) 40%, rgba(124, 181, 24, 0.03) 60%, transparent 60%);
+    background-size: 60px 60px;
+  }
+
+  body.light .geo-pattern {
+    background-image:
+      linear-gradient(30deg, transparent 40%, rgba(196, 30, 58, 0.05) 40%, rgba(196, 30, 58, 0.05) 60%, transparent 60%),
+      linear-gradient(150deg, transparent 40%, rgba(124, 181, 24, 0.05) 40%, rgba(124, 181, 24, 0.05) 60%, transparent 60%);
+  }
+}
+
+/* Scrollbar styling - Dark mode */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-surface-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-surface-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-surface-500;
+}
+
+/* Scrollbar - Light mode */
+body.light ::-webkit-scrollbar-track {
+  @apply bg-light-200;
+}
+
+body.light ::-webkit-scrollbar-thumb {
+  @apply bg-light-400 rounded-full;
+}
+
+body.light ::-webkit-scrollbar-thumb:hover {
+  @apply bg-light-500;
+}
+
+/* Page transition styles */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+/* High contrast text utilities */
+.text-high-contrast {
+  @apply text-white font-semibold;
+}
+
+body.light .text-high-contrast {
+  @apply text-surface-900 font-semibold;
+}
+
+/* Card backgrounds with better contrast */
+.card-bg {
+  @apply bg-surface-800/95;
+}
+
+body.light .card-bg {
+  @apply bg-white;
+}
