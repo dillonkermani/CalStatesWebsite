@@ -15,16 +15,13 @@ function FlipDigit({ value, label, isDark }) {
   return (
     <div className="flex flex-col items-center">
       <div className="relative">
-        {/* Digit container with glassmorphism */}
-        <div className={`relative overflow-hidden rounded-xl ${isDark ? 'bg-surface-800/70 border-white/10' : 'bg-white/90 border-light-300'} backdrop-blur-xl border shadow-2xl`}>
-          {/* Neon glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-b from-grass/10 to-transparent pointer-events-none" />
-
-          {/* Top reflection */}
-          <div className="absolute top-0 left-0 right-0 h-1/2 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+        {/* Digit container */}
+        <div className={`relative overflow-hidden rounded-lg sm:rounded-xl ${isDark ? 'bg-surface-800/90 border-gold/30' : 'bg-surface-900 border-gold/50'} backdrop-blur-xl border-2 shadow-2xl`}>
+          {/* Gold glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-b from-gold/10 to-transparent pointer-events-none" />
 
           {/* Digit display */}
-          <div className="relative px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5">
+          <div className="relative px-2 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4">
             <AnimatePresence mode="popLayout">
               <motion.span
                 key={displayValue}
@@ -37,8 +34,12 @@ function FlipDigit({ value, label, isDark }) {
                   damping: 25,
                   mass: 0.8
                 }}
-                className={`block font-mono text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold ${isDark ? 'text-white' : 'text-surface-900'} tracking-tight`}
-                style={{ fontFamily: "'JetBrains Mono', monospace" }}
+                className="block font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gold"
+                style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  WebkitTextStroke: '1.5px #0a0a0a',
+                  textShadow: '2px 2px 0 #0a0a0a, -1px -1px 0 #0a0a0a, 1px -1px 0 #0a0a0a, -1px 1px 0 #0a0a0a'
+                }}
               >
                 {displayValue}
               </motion.span>
@@ -46,15 +47,15 @@ function FlipDigit({ value, label, isDark }) {
           </div>
 
           {/* Center divider line */}
-          <div className={`absolute left-0 right-0 top-1/2 h-px ${isDark ? 'bg-surface-700/50' : 'bg-light-300'} transform -translate-y-1/2`} />
+          <div className="absolute left-0 right-0 top-1/2 h-px bg-gold/30 transform -translate-y-1/2" />
         </div>
 
         {/* Outer glow */}
-        <div className="absolute -inset-1 rounded-xl bg-grass/20 blur-xl opacity-50 -z-10" />
+        <div className="absolute -inset-1 rounded-xl bg-gold/20 blur-xl opacity-50 -z-10" />
       </div>
 
       {/* Label */}
-      <span className={`mt-2 sm:mt-3 text-xs sm:text-sm font-medium ${isDark ? 'text-gray-400' : 'text-surface-600'} uppercase tracking-widest`}>
+      <span className={`mt-1 sm:mt-2 text-[10px] sm:text-xs font-semibold ${isDark ? 'text-gold/80' : 'text-gold-dark'} uppercase tracking-wider`}>
         {label}
       </span>
     </div>
@@ -67,7 +68,7 @@ function FlipDigit({ value, label, isDark }) {
 function Separator() {
   return (
     <motion.div
-      className="flex flex-col justify-center items-center gap-2 sm:gap-3 px-1 sm:px-2 md:px-3 pb-6"
+      className="flex flex-col justify-center items-center gap-1 sm:gap-2 px-0.5 sm:px-1 md:px-2 pb-5"
       animate={{ opacity: [1, 0.3, 1] }}
       transition={{
         duration: 1,
@@ -75,8 +76,8 @@ function Separator() {
         ease: 'easeInOut'
       }}
     >
-      <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-grass shadow-lg shadow-grass/50" />
-      <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-grass shadow-lg shadow-grass/50" />
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gold shadow-lg shadow-gold/50" />
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gold shadow-lg shadow-gold/50" />
     </motion.div>
   )
 }
@@ -151,12 +152,12 @@ export function CountdownTimer() {
         className="relative rounded-2xl sm:rounded-3xl overflow-hidden"
       >
         {/* Background glow effects */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-grass/30 via-bear-medium/20 to-grass/30 rounded-3xl blur-xl opacity-60" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-cal-red/20 via-gold/30 to-cal-red/20 rounded-3xl blur-xl opacity-60" />
 
         {/* Main container */}
-        <div className="relative glass-strong rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10">
+        <div className="relative glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8">
           {/* Subtle top border glow */}
-          <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-grass/50 to-transparent" />
+          <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
 
           {isComplete ? (
             <EventStatus isLive={isLive} isDark={isDark} />
@@ -167,13 +168,13 @@ export function CountdownTimer() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className={`text-center ${isDark ? 'text-gray-400' : 'text-surface-600'} text-sm sm:text-base font-medium uppercase tracking-widest mb-6 sm:mb-8`}
+                className={`text-center ${isDark ? 'text-gray-400' : 'text-surface-600'} text-xs sm:text-sm font-medium uppercase tracking-widest mb-4 sm:mb-6`}
               >
                 Competition Starts In
               </motion.h3>
 
               {/* Countdown display */}
-              <div className="flex justify-center items-start gap-1 sm:gap-2 md:gap-4">
+              <div className="flex justify-center items-start gap-0.5 sm:gap-1 md:gap-2">
                 <FlipDigit value={days} label="Days" isDark={isDark} />
                 <Separator />
                 <FlipDigit value={hours} label="Hours" isDark={isDark} />
@@ -188,7 +189,7 @@ export function CountdownTimer() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className={`text-center ${isDark ? 'text-gray-500' : 'text-surface-500'} text-xs sm:text-sm mt-6 sm:mt-8`}
+                className={`text-center ${isDark ? 'text-gray-500' : 'text-surface-500'} text-xs sm:text-sm mt-4 sm:mt-6`}
               >
                 April 25, 2026 at 10:00 AM PST
               </motion.p>

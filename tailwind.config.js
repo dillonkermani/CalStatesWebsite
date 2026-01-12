@@ -28,6 +28,12 @@ export default {
           light: '#9ed93a',
           dark: '#5a8a10',
         },
+        // Gold/Yellow
+        gold: {
+          DEFAULT: '#d4a418',
+          light: '#f0c94c',
+          dark: '#b8920f',
+        },
         // Dark Mode Surfaces
         surface: {
           950: '#0a0a0a',
@@ -72,6 +78,7 @@ export default {
       boxShadow: {
         'glow-red': '0 0 20px rgba(196, 30, 58, 0.4), 0 0 40px rgba(196, 30, 58, 0.2)',
         'glow-green': '0 0 20px rgba(124, 181, 24, 0.4), 0 0 40px rgba(124, 181, 24, 0.2)',
+        'glow-gold': '0 0 20px rgba(212, 164, 24, 0.4), 0 0 40px rgba(212, 164, 24, 0.2)',
         'glow-white': '0 0 20px rgba(255, 255, 255, 0.3), 0 0 40px rgba(255, 255, 255, 0.15)',
         'glow-brown': '0 0 20px rgba(139, 115, 85, 0.4), 0 0 40px rgba(139, 115, 85, 0.2)',
         // Light mode shadows - more subtle, no glow
