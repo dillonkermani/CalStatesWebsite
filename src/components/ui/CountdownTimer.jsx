@@ -16,9 +16,9 @@ function FlipDigit({ value, label, isDark }) {
     <div className="flex flex-col items-center">
       <div className="relative">
         {/* Digit container */}
-        <div className={`relative overflow-hidden rounded-lg sm:rounded-xl ${isDark ? 'bg-surface-800/90 border-gold/30' : 'bg-surface-900 border-gold/50'} backdrop-blur-xl border-2 shadow-2xl`}>
-          {/* Gold glow effect */}
-          <div className="absolute inset-0 bg-gradient-to-b from-gold/10 to-transparent pointer-events-none" />
+        <div className={`relative overflow-hidden rounded-lg sm:rounded-xl ${isDark ? 'bg-surface-800/90 border-grass/30' : 'bg-white border-grass/50'} backdrop-blur-xl border-2 shadow-2xl`}>
+          {/* Glow effect */}
+          <div className="absolute inset-0 bg-gradient-to-b from-grass/10 to-transparent pointer-events-none" />
 
           {/* Digit display */}
           <div className="relative px-2 py-2 sm:px-4 sm:py-3 md:px-6 md:py-4">
@@ -34,11 +34,9 @@ function FlipDigit({ value, label, isDark }) {
                   damping: 25,
                   mass: 0.8
                 }}
-                className="block font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gold"
+                className={`block font-mono text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight ${isDark ? 'text-white' : 'text-surface-900'}`}
                 style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  WebkitTextStroke: '1.5px #0a0a0a',
-                  textShadow: '2px 2px 0 #0a0a0a, -1px -1px 0 #0a0a0a, 1px -1px 0 #0a0a0a, -1px 1px 0 #0a0a0a'
+                  fontFamily: "'JetBrains Mono', monospace"
                 }}
               >
                 {displayValue}
@@ -47,15 +45,15 @@ function FlipDigit({ value, label, isDark }) {
           </div>
 
           {/* Center divider line */}
-          <div className="absolute left-0 right-0 top-1/2 h-px bg-gold/30 transform -translate-y-1/2" />
+          <div className={`absolute left-0 right-0 top-1/2 h-px ${isDark ? 'bg-white/20' : 'bg-surface-300'} transform -translate-y-1/2`} />
         </div>
 
         {/* Outer glow */}
-        <div className="absolute -inset-1 rounded-xl bg-gold/20 blur-xl opacity-50 -z-10" />
+        <div className={`absolute -inset-1 rounded-xl ${isDark ? 'bg-grass/20' : 'bg-grass/10'} blur-xl opacity-50 -z-10`} />
       </div>
 
       {/* Label */}
-      <span className={`mt-1 sm:mt-2 text-[10px] sm:text-xs font-semibold ${isDark ? 'text-gold/80' : 'text-gold-dark'} uppercase tracking-wider`}>
+      <span className={`mt-1 sm:mt-2 text-[10px] sm:text-xs font-semibold ${isDark ? 'text-grass' : 'text-grass-dark'} uppercase tracking-wider`}>
         {label}
       </span>
     </div>
@@ -76,8 +74,8 @@ function Separator() {
         ease: 'easeInOut'
       }}
     >
-      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gold shadow-lg shadow-gold/50" />
-      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gold shadow-lg shadow-gold/50" />
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-grass shadow-lg shadow-grass/50" />
+      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-grass shadow-lg shadow-grass/50" />
     </motion.div>
   )
 }
@@ -152,12 +150,12 @@ export function CountdownTimer() {
         className="relative rounded-2xl sm:rounded-3xl overflow-hidden"
       >
         {/* Background glow effects */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-cal-red/20 via-gold/30 to-cal-red/20 rounded-3xl blur-xl opacity-60" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-cal-red/20 via-grass/20 to-cal-red/20 rounded-3xl blur-xl opacity-60" />
 
         {/* Main container */}
         <div className="relative glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8">
           {/* Subtle top border glow */}
-          <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent" />
+          <div className="absolute top-0 left-1/4 right-1/4 h-px bg-gradient-to-r from-transparent via-grass/40 to-transparent" />
 
           {isComplete ? (
             <EventStatus isLive={isLive} isDark={isDark} />

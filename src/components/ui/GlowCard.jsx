@@ -10,7 +10,7 @@ function GlowCard({ children, className, glowColor = 'cal', intensity = 'normal'
   const borderColors = {
     cal: isDark ? 'border-cal-red/30' : 'border-cal-red/40',
     grass: isDark ? 'border-grass/30' : 'border-grass/40',
-    bear: isDark ? 'border-bear-light/30' : 'border-bear-medium/40',
+    gold: isDark ? 'border-gold/30' : 'border-gold/40',
     mixed: isDark ? 'border-cal-red/20' : 'border-cal-red/30',
   }
 
@@ -18,7 +18,7 @@ function GlowCard({ children, className, glowColor = 'cal', intensity = 'normal'
   const hoverBorderColors = {
     cal: 'group-hover:border-cal-red/60',
     grass: 'group-hover:border-grass/60',
-    bear: 'group-hover:border-bear-light/60',
+    gold: 'group-hover:border-gold/60',
     mixed: 'group-hover:border-cal-red/50',
   }
 
@@ -26,7 +26,7 @@ function GlowCard({ children, className, glowColor = 'cal', intensity = 'normal'
   const shadowColors = {
     cal: 'group-hover:shadow-glow-red',
     grass: 'group-hover:shadow-glow-green',
-    bear: 'group-hover:shadow-glow-brown',
+    gold: 'group-hover:shadow-glow-gold',
     mixed: 'group-hover:shadow-glow-red',
   }
 
@@ -34,8 +34,8 @@ function GlowCard({ children, className, glowColor = 'cal', intensity = 'normal'
   const accentColors = {
     cal: 'bg-cal-red',
     grass: 'bg-grass',
-    bear: 'bg-bear-light',
-    mixed: 'bg-gradient-to-b from-cal-red via-bear-light to-grass',
+    gold: 'bg-gold',
+    mixed: 'bg-gradient-to-b from-cal-red via-gold to-grass',
   }
 
   return (

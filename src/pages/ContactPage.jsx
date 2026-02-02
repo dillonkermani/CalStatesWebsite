@@ -280,34 +280,6 @@ function ContactInfo() {
         </div>
       </div>
 
-      {/* Social Links Placeholder */}
-      <div>
-        <h3 className={`text-lg font-display font-semibold ${isDark ? 'text-white' : 'text-surface-900'} mb-4`}>
-          Follow Us
-        </h3>
-        <div className="flex gap-3">
-          {[
-            { name: 'Instagram', icon: '@' },
-            { name: 'Facebook', icon: 'f' },
-            { name: 'YouTube', icon: '>' },
-          ].map((social) => (
-            <a
-              key={social.name}
-              href="#"
-              className={`w-12 h-12 rounded-xl ${isDark ? 'bg-surface-700/50 border-white/10 text-white/60 hover:text-white' : 'bg-white border-light-300 text-surface-500 hover:text-surface-900'} border flex items-center justify-center hover:border-grass hover:shadow-grass transition-all duration-300 group`}
-              title={social.name}
-            >
-              <span className="font-mono text-lg group-hover:scale-110 transition-transform">
-                {social.icon}
-              </span>
-            </a>
-          ))}
-        </div>
-        <p className={`${isDark ? 'text-white/40' : 'text-surface-400'} text-xs mt-3`}>
-          Social links coming soon
-        </p>
-      </div>
-
       {/* Quick Links */}
       <div className={`pt-6 border-t ${isDark ? 'border-white/10' : 'border-light-300'}`}>
         <h3 className={`text-sm font-display font-semibold ${isDark ? 'text-white/60' : 'text-surface-500'} uppercase tracking-wider mb-4`}>
@@ -386,7 +358,7 @@ function ContactPage() {
             <GlowCard glowColor="cal" className="h-full">
               <div className="p-6 sm:p-8">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-cal-red to-bear-medium flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-cal-red to-gold flex items-center justify-center">
                     <Mail className="w-5 h-5 text-white" />
                   </div>
                   <h2 className={`text-xl font-display font-bold ${isDark ? 'text-white' : 'text-surface-900'}`}>

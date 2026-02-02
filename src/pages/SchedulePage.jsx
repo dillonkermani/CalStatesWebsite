@@ -15,9 +15,9 @@ const typeConfig = {
     icon: Trophy,
   },
   break: {
-    color: 'bear-tan',
-    bgColor: 'bg-bear-tan/10',
-    borderColor: 'border-bear-tan/30',
+    color: 'gold',
+    bgColor: 'bg-gold/10',
+    borderColor: 'border-gold/30',
     glowColor: 'shadow-[0_0_20px_rgba(254,228,64,0.3)]',
     icon: Coffee,
   },
@@ -36,9 +36,9 @@ const typeConfig = {
     icon: UserCheck,
   },
   end: {
-    color: 'bear-medium',
-    bgColor: 'bg-bear-medium/10',
-    borderColor: 'border-bear-medium/30',
+    color: 'gold',
+    bgColor: 'bg-gold/10',
+    borderColor: 'border-gold/30',
     glowColor: 'shadow-glow',
     icon: Flag,
   },
@@ -100,17 +100,17 @@ function SchedulePage() {
         <Container size="lg">
           <div className="relative">
             {/* Vertical timeline line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-grass via-cal-red to-bear-medium hidden md:block">
+            <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-grass via-cal-red to-gold hidden md:block">
               {/* Glowing effect on the line */}
               {isDark && (
-                <div className="absolute inset-0 w-full bg-gradient-to-b from-grass via-cal-red to-bear-medium blur-sm opacity-50" />
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-grass via-cal-red to-gold blur-sm opacity-50" />
               )}
             </div>
 
             {/* Mobile timeline line */}
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-grass via-cal-red to-bear-medium md:hidden">
+            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-grass via-cal-red to-gold md:hidden">
               {isDark && (
-                <div className="absolute inset-0 w-full bg-gradient-to-b from-grass via-cal-red to-bear-medium blur-sm opacity-50" />
+                <div className="absolute inset-0 w-full bg-gradient-to-b from-grass via-cal-red to-gold blur-sm opacity-50" />
               )}
             </div>
 

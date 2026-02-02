@@ -21,7 +21,7 @@ function TimelineItem({
   const variantColors = {
     default: 'bg-cal-red',
     highlight: 'bg-grass',
-    warning: 'bg-bear-tan',
+    warning: 'bg-gold',
     live: 'bg-cal-red',
   }
 
@@ -99,7 +99,7 @@ function TimelineItem({
           {/* Connecting line */}
           {!isLast && (
             <motion.div
-              className="w-[2px] h-24 bg-gradient-to-b from-cal-red/50 to-bear-medium/30"
+              className="w-[2px] h-24 bg-gradient-to-b from-cal-red/50 to-gold/30"
               initial={{ scaleY: 0, originY: 0 }}
               animate={isInView ? { scaleY: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.3 }}
@@ -158,7 +158,7 @@ function TimelineItem({
           </motion.div>
           {!isLast && (
             <motion.div
-              className="w-[2px] flex-1 min-h-[60px] bg-gradient-to-b from-cal-red/50 to-bear-medium/30"
+              className="w-[2px] flex-1 min-h-[60px] bg-gradient-to-b from-cal-red/50 to-gold/30"
               initial={{ scaleY: 0, originY: 0 }}
               animate={isInView ? { scaleY: 1 } : {}}
               transition={{ duration: 0.5, delay: 0.2 }}

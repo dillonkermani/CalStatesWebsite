@@ -110,7 +110,7 @@ function AccordionItem({ division, isOpen, onToggle, index, isDark }) {
 
                     {/* Detailed Rules */}
                     <div className="space-y-2">
-                      <span className="text-xs text-bear-tan font-semibold uppercase tracking-wider">
+                      <span className="text-xs text-gold font-semibold uppercase tracking-wider">
                         Division Rules
                       </span>
                       <ul className="space-y-3 mt-3">
@@ -162,7 +162,7 @@ function RulesPage() {
         {/* Background glow effects */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-20 right-1/4 w-96 h-96 bg-grass/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-bear-medium/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-gold/10 rounded-full blur-3xl" />
         </div>
 
         <Container className="relative z-10">
@@ -291,11 +291,11 @@ function RulesPage() {
       <section className="py-12">
         <Container>
           <AnimatedSection animation="fadeUp">
-            <GlowCard glowColor="bear">
+            <GlowCard glowColor="gold">
               <div className="p-8 md:p-12">
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-bear-light/20 to-cal-red-light/20 flex items-center justify-center">
-                    <Info className="w-5 h-5 text-bear-light" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold/20 to-cal-red-light/20 flex items-center justify-center">
+                    <Info className="w-5 h-5 text-gold" />
                   </div>
                   <h2 className={`text-2xl font-display font-bold ${isDark ? 'text-white' : 'text-surface-900'}`}>
                     General Rules
@@ -305,7 +305,7 @@ function RulesPage() {
                 <ul className="space-y-4">
                   {generalRules.map((rule, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="w-6 h-6 rounded-full bg-gradient-to-r from-bear-light to-cal-red-light flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">
+                      <span className="w-6 h-6 rounded-full bg-gradient-to-r from-gold to-cal-red-light flex items-center justify-center flex-shrink-0 text-xs font-bold text-white">
                         {index + 1}
                       </span>
                       <span className={isDark ? 'text-white/80' : 'text-surface-700'}>{rule}</span>

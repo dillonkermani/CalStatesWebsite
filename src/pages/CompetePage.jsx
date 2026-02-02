@@ -17,7 +17,7 @@ const iconMap = {
 }
 
 const glowColorMap = {
-  'Trophy': 'bear',
+  'Trophy': 'gold',
   'Zap': 'grass',
   'Sparkles': 'grass',
 }

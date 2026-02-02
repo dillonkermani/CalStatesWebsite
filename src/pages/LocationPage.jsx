@@ -152,7 +152,7 @@ function LocationPage() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 gap-4">
             {venue.images.map((image, index) => (
               <AnimatedSection key={index} delay={0.1 * index}>
                 <motion.div
@@ -163,30 +163,11 @@ function LocationPage() {
                   }`}
                   whileHover={{ scale: 1.02 }}
                 >
-                  {/* Placeholder gradient for missing images */}
-                  <div className={`absolute inset-0 ${
-                    isDark
-                      ? 'bg-gradient-to-br from-surface-700 via-surface-800 to-surface-900'
-                      : 'bg-gradient-to-br from-light-100 via-light-200 to-light-300'
-                  }`}>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        <Camera className={`w-10 h-10 mx-auto mb-2 ${
-                          isDark ? 'text-white/20' : 'text-surface-400'
-                        }`} />
-                        <span className={`text-sm ${isDark ? 'text-white/30' : 'text-surface-500'}`}>
-                          Venue Photo {index + 1}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Actual image (will show when available) */}
+                  {/* Actual image */}
                   <img
                     src={image}
                     alt={`${venue.name} - View ${index + 1}`}
-                    className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    onError={(e) => e.target.style.display = 'none'}
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
 
                   {/* Hover overlay */}
@@ -264,7 +245,7 @@ function LocationPage() {
             <h2 className={`text-3xl font-display font-bold flex items-center gap-3 ${
               isDark ? 'text-white' : 'text-surface-900'
             }`}>
-              <Car className="w-8 h-8 text-bear-tan" />
+              <Car className="w-8 h-8 text-gold" />
               Travel Tips
             </h2>
           </AnimatedSection>

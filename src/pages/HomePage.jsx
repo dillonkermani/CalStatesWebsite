@@ -56,7 +56,7 @@ function MeshBackground() {
       {/* Primary gradient mesh */}
       <div className={`absolute inset-0 ${
         isDark
-          ? 'bg-gradient-to-br from-bear-medium/20 via-surface-900 to-cal-red/10'
+          ? 'bg-gradient-to-br from-gold/10 via-surface-900 to-cal-red/10'
           : 'bg-gradient-to-br from-grass/10 via-light-100 to-cal-red/5'
       }`} />
 
@@ -144,7 +144,7 @@ function ScrollIndicator() {
 
   return (
     <motion.div
-      className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
+      className="absolute bottom-8 left-0 right-0 flex flex-col items-center justify-center gap-2 cursor-pointer z-10"
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 1.5, duration: 0.5 }}
@@ -157,7 +157,7 @@ function ScrollIndicator() {
         animate={{ y: [0, 8, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
       >
-        <ChevronDown className="w-6 h-6 text-grass" />
+        <ChevronDown className="w-6 h-6 text-gold" />
       </motion.div>
     </motion.div>
   )
@@ -180,13 +180,13 @@ function HeroSection() {
             transition={{ duration: 0.5 }}
             className="mb-6"
           >
-            <span className={`inline-flex items-center px-4 py-2 rounded-full backdrop-blur-xl border text-grass font-mono text-sm tracking-wider ${
+            <span className={`inline-flex items-center px-4 py-2 rounded-full backdrop-blur-xl border text-gold font-mono text-sm tracking-wider ${
               isDark
-                ? 'bg-surface-800/60 border-grass/30'
-                : 'bg-white/80 border-grass/40 shadow-sm'
+                ? 'bg-surface-800/60 border-gold/30'
+                : 'bg-white/80 border-gold/40 shadow-sm'
             }`}>
               <Star className="w-4 h-4 mr-2" />
-              2026 EDITION
+              2026
             </span>
           </motion.div>
 
@@ -234,7 +234,7 @@ function HeroSection() {
                 ? 'bg-surface-800/40 border-white/5'
                 : 'bg-white/80 border-light-300 shadow-sm'
             }`}>
-              <MapPin className="w-5 h-5 text-bear-light" />
+              <MapPin className="w-5 h-5 text-gold" />
               <span className="font-medium">Chico Women's Club</span>
             </div>
           </motion.div>
@@ -290,8 +290,8 @@ function AboutSection() {
     {
       icon: Building2,
       title: 'Historic Venue',
-      description: 'Held at the Chico Women\'s Club.',
-      glowColor: 'bear',
+      description: 'Held at the beautiful Chico Women\'s Club',
+      glowColor: 'gold',
     },
     {
       icon: Trophy,
@@ -376,7 +376,7 @@ function QuickLinksSection() {
       icon: Trophy,
       title: 'Compete',
       description: 'Register to compete and learn about divisions',
-      glowColor: 'bear',
+      glowColor: 'gold',
     },
     {
       to: '/location',
@@ -389,7 +389,7 @@ function QuickLinksSection() {
       to: '/results',
       icon: Star,
       title: 'Results',
-      description: 'Check out past winners and competition history',
+      description: 'View 2026 competition results after the contest',
       glowColor: 'cal',
     },
   ]

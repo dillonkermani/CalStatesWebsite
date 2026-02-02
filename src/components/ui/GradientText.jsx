@@ -4,8 +4,8 @@ import { twMerge } from 'tailwind-merge'
 
 const gradients = {
   cal: 'from-cal-red via-cal-red-light to-cal-red',
-  mixed: 'from-cal-red via-bear-light to-grass',
-  bear: 'from-bear-tan via-bear-light to-bear-medium',
+  mixed: 'from-cal-red via-gold to-grass',
+  gold: 'from-gold-light via-gold to-gold-dark',
   grass: 'from-grass-light via-grass to-grass-dark',
   white: 'from-white via-accent-gray to-white',
 }

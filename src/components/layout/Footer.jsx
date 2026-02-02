@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Mail, Instagram, Youtube, Facebook } from 'lucide-react'
+import { Mail, Instagram } from 'lucide-react'
 import { useTheme } from '../../hooks/useTheme'
 
 const quickLinks = [
@@ -18,9 +18,7 @@ const competeLinks = [
 ]
 
 const socialLinks = [
-  { name: 'Instagram', icon: Instagram, href: '#' },
-  { name: 'YouTube', icon: Youtube, href: '#' },
-  { name: 'Facebook', icon: Facebook, href: '#' },
+  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/calstateyoyo' },
 ]
 
 function Footer() {

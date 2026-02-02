@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Star, Handshake, Mail, Phone, Building2, CheckCircle } from 'lucide-react'
-import { sponsorTiers } from '../data/sponsors'
+import { Handshake, Mail, Phone, Building2, CheckCircle } from 'lucide-react'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
 import Button from '../components/ui/Button'
@@ -9,127 +8,7 @@ import GradientText from '../components/ui/GradientText'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import { useTheme } from '../hooks/useTheme'
 
-const tierConfig = {
-  gold: {
-    cardSize: 'w-64 h-72',
-    logoSize: 'w-40 h-40',
-    glowColor: 'bear',
-    gridCols: 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2',
-    showGlow: true,
-  },
-  silver: {
-    cardSize: 'w-48 h-56',
-    logoSize: 'w-28 h-28',
-    glowColor: 'grass',
-    gridCols: 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-3',
-    showGlow: false,
-  },
-  bronze: {
-    cardSize: 'w-36 h-44',
-    logoSize: 'w-20 h-20',
-    glowColor: 'cal',
-    gridCols: 'grid-cols-2 sm:grid-cols-4 lg:grid-cols-4',
-    showGlow: false,
-  },
-}
-
-function SponsorCard({ sponsor, tier, isDark }) {
-  const config = tierConfig[tier]
-
-  return (
-    <GlowCard glowColor={config.glowColor} className={config.cardSize}>
-      <div className="h-full flex flex-col items-center justify-center p-4 gap-4">
-        {/* Logo placeholder */}
-        <div
-          className={`${config.logoSize} rounded-xl ${isDark ? 'bg-surface-700/50 border-white/10' : 'bg-surface-100 border-light-300'} border flex items-center justify-center overflow-hidden relative group`}
-        >
-          {sponsor.logo ? (
-            <img
-              src={sponsor.logo}
-              alt={`${sponsor.name} logo`}
-              className="w-full h-full object-contain p-2"
-              onError={(e) => {
-                e.target.style.display = 'none'
-                e.target.nextSibling.style.display = 'flex'
-              }}
-            />
-          ) : null}
-          <div
-            className={`${sponsor.logo ? 'hidden' : 'flex'} absolute inset-0 items-center justify-center`}
-          >
-            <Star className="w-8 h-8 text-white/20" />
-          </div>
-
-          {/* Gold tier special glow effect */}
-          {config.showGlow && (
-            <div className="absolute inset-0 bg-gradient-to-br from-bear-light/20 via-transparent to-bear-medium/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          )}
-        </div>
-
-        {/* Sponsor name */}
-        <span className={`${isDark ? 'text-white/90' : 'text-surface-800'} font-display text-sm text-center font-medium`}>
-          {sponsor.name}
-        </span>
-
-        {/* Gold badge for gold tier */}
-        {tier === 'gold' && (
-          <span className="px-3 py-1 rounded-full bg-gradient-cal text-xs font-semibold text-white">
-            Gold Sponsor
-          </span>
-        )}
-      </div>
-    </GlowCard>
-  )
-}
-
-function SponsorTierSection({ tierData, isDark }) {
-  const config = tierConfig[tierData.tier]
-
-  return (
-    <AnimatedSection animation="fadeUp" className="mb-16">
-      {/* Tier header */}
-      <div className="flex items-center justify-center gap-3 mb-8">
-        <Star
-          className={`w-6 h-6 ${
-            tierData.tier === 'gold'
-              ? 'text-bear-light'
-              : tierData.tier === 'silver'
-                ? 'text-grass'
-                : 'text-cal-red'
-          }`}
-        />
-        <h2 className={`text-2xl font-display font-bold ${isDark ? 'text-white' : 'text-surface-900'}`}>
-          {tierData.name}
-        </h2>
-        <Star
-          className={`w-6 h-6 ${
-            tierData.tier === 'gold'
-              ? 'text-bear-light'
-              : tierData.tier === 'silver'
-                ? 'text-grass'
-                : 'text-cal-red'
-          }`}
-        />
-      </div>
-
-      {/* Sponsors grid */}
-      <div className={`grid ${config.gridCols} gap-6 justify-items-center`}>
-        {tierData.sponsors.map((sponsor, index) => (
-          <motion.div
-            key={sponsor.name}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <SponsorCard sponsor={sponsor} tier={tierData.tier} isDark={isDark} />
-          </motion.div>
-        ))}
-      </div>
-    </AnimatedSection>
-  )
-}
-
-function SponsorForm() {
+function SponsorForm({ isDark }) {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -148,7 +27,6 @@ function SponsorForm() {
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }))
-    // Clear error on change
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }))
     }
@@ -174,7 +52,6 @@ function SponsorForm() {
       setErrors(newErrors)
       return
     }
-    // Form is ready for backend integration
     console.log('Sponsor form data:', formData)
     setIsSubmitted(true)
   }
@@ -198,14 +75,11 @@ function SponsorForm() {
           Thank You!
         </h3>
         <p className={isDark ? 'text-white/70' : 'text-surface-600'}>
-          We have received your sponsorship inquiry. Our team will be in touch
-          soon!
+          We have received your sponsorship inquiry. Our team will be in touch soon!
         </p>
       </motion.div>
     )
   }
-
-  const { isDark } = useTheme()
 
   const inputClasses = (fieldName) =>
     `w-full px-4 py-3 rounded-xl ${isDark ? 'bg-surface-700/50' : 'bg-white'} border ${
@@ -216,7 +90,6 @@ function SponsorForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Name fields */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className={`block ${isDark ? 'text-white/80' : 'text-surface-700'} text-sm font-medium mb-2`}>
@@ -252,7 +125,6 @@ function SponsorForm() {
         </div>
       </div>
 
-      {/* Email and Phone */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <label className={`block ${isDark ? 'text-white/80' : 'text-surface-700'} text-sm font-medium mb-2`}>
@@ -287,7 +159,6 @@ function SponsorForm() {
         </div>
       </div>
 
-      {/* Company */}
       <div>
         <label className={`block ${isDark ? 'text-white/80' : 'text-surface-700'} text-sm font-medium mb-2`}>
           <Building2 className="w-4 h-4 inline mr-2" />
@@ -306,7 +177,6 @@ function SponsorForm() {
         )}
       </div>
 
-      {/* Vendor Table Checkbox */}
       <div className="flex items-center gap-3">
         <input
           type="checkbox"
@@ -324,7 +194,6 @@ function SponsorForm() {
         </label>
       </div>
 
-      {/* Notes */}
       <div>
         <label className={`block ${isDark ? 'text-white/80' : 'text-surface-700'} text-sm font-medium mb-2`}>
           Additional Notes
@@ -339,7 +208,6 @@ function SponsorForm() {
         />
       </div>
 
-      {/* Submit Button */}
       <Button type="submit" className="w-full sm:w-auto">
         <Handshake className="w-5 h-5" />
         Submit Inquiry
@@ -358,56 +226,43 @@ function SponsorsPage() {
       exit={{ opacity: 0 }}
       className={`min-h-screen ${isDark ? 'bg-surface-900' : 'bg-light-100'} pt-24 pb-16`}
     >
-      {/* Background effects */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-bear-medium/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-bear-light/20 rounded-full blur-3xl" />
+        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-gold/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-gold-light/20 rounded-full blur-3xl" />
       </div>
 
       <Container className="relative z-10">
-        {/* Page Header */}
-        <AnimatedSection animation="fadeDown" className="text-center mb-16">
+        <AnimatedSection animation="fadeDown" className="text-center mb-12">
           <h1 className="text-5xl sm:text-6xl font-display font-bold mb-4">
-            <GradientText>OUR SPONSORS</GradientText>
+            <GradientText>BECOME A SPONSOR</GradientText>
           </h1>
           <p className={`${isDark ? 'text-white/60' : 'text-surface-600'} text-lg max-w-2xl mx-auto`}>
-            We are grateful to our amazing sponsors who make the California State
-            Yo-Yo Contest possible every year.
+            Partner with California's premier yo-yo competition and connect
+            with passionate enthusiasts from around the world.
           </p>
         </AnimatedSection>
 
-        {/* Sponsor Tiers */}
-        <div className="mb-20">
-          {sponsorTiers.map((tier) => (
-            <SponsorTierSection key={tier.tier} tierData={tier} isDark={isDark} />
-          ))}
-        </div>
-
-        {/* Become a Sponsor CTA Section */}
         <AnimatedSection animation="fadeUp" className="max-w-3xl mx-auto">
-          <GlowCard glowColor="bear" className="overflow-hidden">
+          <GlowCard glowColor="gold" className="overflow-hidden">
             <div className="p-8 sm:p-12">
-              {/* Section Header */}
               <div className="text-center mb-10">
                 <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-cal mb-4">
                   <Handshake className="w-8 h-8 text-white" />
                 </div>
                 <h2 className={`text-3xl font-display font-bold ${isDark ? 'text-white' : 'text-surface-900'} mb-3`}>
-                  Become a Sponsor
+                  Sponsorship Inquiry
                 </h2>
                 <p className={`${isDark ? 'text-white/60' : 'text-surface-600'} max-w-lg mx-auto`}>
-                  Partner with California's premier yo-yo competition and connect
-                  with passionate enthusiasts from around the world.
+                  Interested in sponsoring Cal States 2026? Fill out the form below and we'll be in touch!
                 </p>
               </div>
 
-              {/* Sponsor Benefits */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
                 {[
                   { title: 'Brand Exposure', desc: 'Logo on all materials' },
                   { title: 'Community Access', desc: 'Connect with enthusiasts' },
                   { title: 'Event Presence', desc: 'Vendor table options' },
-                ].map((benefit, index) => (
+                ].map((benefit) => (
                   <div
                     key={benefit.title}
                     className={`text-center p-4 rounded-xl ${isDark ? 'bg-white/5 border-white/10' : 'bg-surface-100 border-light-300'} border`}
@@ -420,8 +275,7 @@ function SponsorsPage() {
                 ))}
               </div>
 
-              {/* Sponsor Form */}
-              <SponsorForm />
+              <SponsorForm isDark={isDark} />
             </div>
           </GlowCard>
         </AnimatedSection>

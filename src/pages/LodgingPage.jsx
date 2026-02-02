@@ -1,31 +1,14 @@
 import { motion } from 'framer-motion'
-import { Building, Phone, MapPin, Car, Plane, ParkingCircle, Clock, ExternalLink, Copy, Check, Tag } from 'lucide-react'
-import { useState } from 'react'
-import { hotel, travel, alternateHotels } from '../data/lodging'
+import { Building, MapPin, Car, Plane, ParkingCircle, Clock, Bell } from 'lucide-react'
+import { travel, alternateHotels } from '../data/lodging'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
-import Button from '../components/ui/Button'
 import GradientText from '../components/ui/GradientText'
 import AnimatedSection from '../components/ui/AnimatedSection'
 import { useTheme } from '../hooks/useTheme'
 
 function LodgingPage() {
   const { isDark } = useTheme()
-  const [copied, setCopied] = useState(false)
-
-  const handleBookNow = () => {
-    window.open(hotel.bookingUrl, '_blank')
-  }
-
-  const copyBookingCode = async () => {
-    try {
-      await navigator.clipboard.writeText(hotel.bookingCode)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
-    } catch (err) {
-      console.error('Failed to copy booking code:', err)
-    }
-  }
 
   return (
     <motion.div
@@ -48,159 +31,56 @@ function LodgingPage() {
             <GradientText>HOTEL & TRAVEL</GradientText>
           </h1>
           <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-            Book your stay for the California State Yo-Yo Contest.
-            We have a special room block at our partner hotel.
+            Planning your trip to the California State Yo-Yo Contest?
+            Here's what you need to know about travel and accommodations.
           </p>
         </AnimatedSection>
 
-        {/* Featured Hotel Card */}
+        {/* Lodging TBD Notice */}
         <AnimatedSection animation="fadeUp" delay={0.1} className="mb-12">
-          <GlowCard glowColor="grass" className="max-w-3xl mx-auto">
-            <div className="p-8">
-              {/* Hotel Header */}
-              <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
-                <div>
-                  <span className={`inline-flex items-center gap-2 px-3 py-1 text-xs font-mono font-semibold text-grass border rounded-full mb-3 ${
-                    isDark ? 'bg-grass/10 border-grass/30' : 'bg-grass/10 border-grass/20'
-                  }`}>
-                    <span className="w-2 h-2 rounded-full bg-grass animate-pulse" />
-                    OFFICIAL PARTNER HOTEL
-                  </span>
-                  <h2 className={`text-2xl md:text-3xl font-display font-bold ${
-                    isDark ? 'text-white' : 'text-surface-900'
-                  }`}>
-                    {hotel.name}
-                  </h2>
-                  <p className={`text-sm mt-1 italic ${isDark ? 'text-white/60' : 'text-surface-500'}`}>
-                    {hotel.note}
-                  </p>
-                </div>
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center ${
-                  isDark
-                    ? 'bg-gradient-to-br from-grass/20 to-grass-dark/20'
-                    : 'bg-gradient-to-br from-grass/10 to-grass-dark/10'
-                }`}>
-                  <Building className="w-8 h-8 text-grass" />
-                </div>
-              </div>
-
-              {/* Booking Code Highlight */}
-              <div className={`mb-6 p-4 rounded-xl border ${
+          <GlowCard glowColor="gold" className="max-w-3xl mx-auto">
+            <div className="p-8 text-center">
+              <div className={`w-20 h-20 mx-auto rounded-2xl flex items-center justify-center mb-6 ${
                 isDark
-                  ? 'bg-gradient-to-r from-bear-tan/10 to-bear-light/10 border-bear-tan/30'
-                  : 'bg-gradient-to-r from-bear-tan/5 to-bear-light/5 border-bear-tan/20'
+                  ? 'bg-gradient-to-br from-gold/20 to-gold-dark/20'
+                  : 'bg-gradient-to-br from-gold/10 to-gold-dark/10'
               }`}>
-                <div className="flex items-center justify-between flex-wrap gap-4">
-                  <div className="flex items-center gap-3">
-                    <Tag className="w-6 h-6 text-bear-tan" />
-                    <div>
-                      <p className={`text-sm ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-                        Group Booking Code
-                      </p>
-                      <p className="text-2xl font-mono font-bold text-bear-tan tracking-wider">
-                        {hotel.bookingCode}
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={copyBookingCode}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg border transition-all duration-200 ${
-                      isDark
-                        ? 'bg-white/5 hover:bg-white/10 border-white/10'
-                        : 'bg-surface-100 hover:bg-surface-200 border-light-300'
-                    }`}
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="w-4 h-4 text-grass" />
-                        <span className="text-grass text-sm">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className={`w-4 h-4 ${isDark ? 'text-white/60' : 'text-surface-500'}`} />
-                        <span className={`text-sm ${isDark ? 'text-white/60' : 'text-surface-500'}`}>Copy Code</span>
-                      </>
-                    )}
-                  </button>
-                </div>
+                <Bell className="w-10 h-10 text-gold" />
               </div>
-
-              {/* Hotel Details */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-cal-red mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-white/40' : 'text-surface-500'}`}>Address</p>
-                    <p className={isDark ? 'text-white/80' : 'text-surface-700'}>{hotel.address}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-cal-red mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-white/40' : 'text-surface-500'}`}>Phone</p>
-                    <a href={`tel:${hotel.phone}`} className={`hover:text-grass transition-colors ${
-                      isDark ? 'text-white/80' : 'text-surface-700'
-                    }`}>
-                      {hotel.phone}
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-bear-tan mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-white/40' : 'text-surface-500'}`}>Distance from Venue</p>
-                    <p className={isDark ? 'text-white/80' : 'text-surface-700'}>{hotel.distance}</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Car className="w-5 h-5 text-bear-tan mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className={`text-sm mb-1 ${isDark ? 'text-white/40' : 'text-surface-500'}`}>Room Block Dates</p>
-                    <p className={isDark ? 'text-white/80' : 'text-surface-700'}>{hotel.bookingDates}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Features */}
-              <div className={`rounded-xl p-4 mb-6 ${
-                isDark ? 'bg-surface-700/30' : 'bg-light-100'
+              <h2 className={`text-2xl md:text-3xl font-display font-bold mb-4 ${
+                isDark ? 'text-white' : 'text-surface-900'
               }`}>
-                <p className={`text-sm mb-2 ${isDark ? 'text-white/40' : 'text-surface-500'}`}>Room Block Features</p>
-                <ul className="space-y-2">
-                  {hotel.features.map((feature, index) => (
-                    <li key={index} className={`flex items-center gap-2 ${isDark ? 'text-white/80' : 'text-surface-700'}`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-grass" />
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                <p className="text-sm text-cal-red mt-3 font-semibold">
-                  Book by {hotel.bookingDeadline} for discounted rates
-                </p>
+                2026 Hotel Block Coming Soon
+              </h2>
+              <p className={`text-lg mb-6 ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
+                We're currently working on securing a hotel room block for the 2026 contest.
+                Check back soon for official partner hotel information and discounted rates!
+              </p>
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${
+                isDark
+                  ? 'bg-surface-700/50 border-white/10'
+                  : 'bg-white border-light-300 shadow-sm'
+              }`}>
+                <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
+                <span className={`text-sm ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
+                  Lodging details to be announced
+                </span>
               </div>
-
-              {/* Book Now Button */}
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={handleBookNow}
-                className="w-full md:w-auto"
-              >
-                Book Now with Group Rate
-                <ExternalLink className="w-4 h-4" />
-              </Button>
             </div>
           </GlowCard>
         </AnimatedSection>
 
-        {/* Alternate Hotels */}
+        {/* Nearby Hotels - General Reference */}
         <AnimatedSection animation="fadeUp" delay={0.15} className="mb-12">
           <div className="max-w-3xl mx-auto">
-            <h3 className={`text-xl font-display font-bold mb-4 text-center ${
+            <h3 className={`text-xl font-display font-bold mb-2 text-center ${
               isDark ? 'text-white' : 'text-surface-900'
             }`}>
-              Other Nearby Hotels
+              Hotels Near the Venue
             </h3>
+            <p className={`text-center mb-6 ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
+              While we finalize the official hotel block, here are some nearby options to consider:
+            </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {alternateHotels.map((altHotel) => (
                 <div
@@ -233,15 +113,15 @@ function LodgingPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Travel Information */}
           <AnimatedSection animation="fadeLeft" delay={0.2}>
-            <GlowCard glowColor="bear" className="h-full">
+            <GlowCard glowColor="gold" className="h-full">
               <div className="p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${
                     isDark
-                      ? 'bg-gradient-to-br from-bear-light/20 to-cal-red/20'
-                      : 'bg-gradient-to-br from-bear-light/10 to-cal-red/10'
+                      ? 'bg-gradient-to-br from-gold/20 to-cal-red/20'
+                      : 'bg-gradient-to-br from-gold/10 to-cal-red/10'
                   }`}>
-                    <Plane className="w-6 h-6 text-bear-light" />
+                    <Plane className="w-6 h-6 text-gold" />
                   </div>
                   <h3 className={`text-xl font-display font-bold ${
                     isDark ? 'text-white' : 'text-surface-900'
@@ -294,7 +174,7 @@ function LodgingPage() {
                   <div className={`flex items-start gap-3 p-3 rounded-lg ${
                     isDark ? 'bg-surface-700/30' : 'bg-light-100'
                   }`}>
-                    <Car className="w-5 h-5 text-bear-tan mt-0.5 flex-shrink-0" />
+                    <Car className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
                     <div>
                       <p className={`text-sm mb-1 ${isDark ? 'text-white/40' : 'text-surface-500'}`}>Transportation</p>
                       <p className={`font-medium ${isDark ? 'text-white' : 'text-surface-900'}`}>{travel.transportation}</p>
@@ -347,7 +227,7 @@ function LodgingPage() {
                   </div>
 
                   <div className={`flex items-center gap-2 text-sm ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-                    <div className="w-2 h-2 rounded-full bg-bear-tan" />
+                    <div className="w-2 h-2 rounded-full bg-gold" />
                     <span>{travel.parkingNote}</span>
                   </div>
                 </div>
@@ -362,7 +242,7 @@ function LodgingPage() {
             isDark ? 'bg-grass/10' : 'bg-grass/5'
           }`} />
           <div className={`absolute bottom-1/4 -left-32 w-96 h-96 rounded-full blur-3xl ${
-            isDark ? 'bg-bear-medium/10' : 'bg-bear-medium/5'
+            isDark ? 'bg-gold/10' : 'bg-gold/5'
           }`} />
         </div>
       </Container>

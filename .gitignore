@@ -41,3 +41,8 @@ lerna-debug.log*
 
 # Testing
 coverage
+
+# Claude AI
+.claude*
+.claude-flow/
+.swarm/

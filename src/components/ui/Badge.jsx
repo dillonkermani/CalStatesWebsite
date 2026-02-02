@@ -19,9 +19,9 @@ function Badge({ children, variant = 'default', className, ...props }) {
       'border border-grass/30',
     ],
     warning: [
-      'bg-bear-tan/10',
-      'text-bear-tan',
-      'border border-bear-tan/30',
+      'bg-gold/10',
+      'text-gold',
+      'border border-gold/30',
     ],
     live: [
       'bg-cal-red/10',
