@@ -152,7 +152,7 @@ function LocationPage() {
             </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-4">
+          <div className="grid md:grid-cols-3 gap-4">
             {venue.images.map((image, index) => (
               <AnimatedSection key={index} delay={0.1 * index}>
                 <motion.div

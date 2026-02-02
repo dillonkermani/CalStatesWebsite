@@ -11,7 +11,8 @@ export const venue = {
   mapUrl: "https://maps.google.com/?q=592+E+3rd+St+Chico+CA+95928",
   images: [
     "https://static.wixstatic.com/media/758431_70562fb48b1944c39c027b0a50e64799~mv2.png/v1/fill/w_640,h_514,al_l,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/758431_70562fb48b1944c39c027b0a50e64799~mv2.png",
-    "https://applications-media.feverup.com/image/upload/f_auto,w_800,h_450/fever2/plan/photo/84679a2e-161b-11f0-93bc-9a05928bd922.jpg"
+    "https://applications-media.feverup.com/image/upload/f_auto,w_800,h_450/fever2/plan/photo/84679a2e-161b-11f0-93bc-9a05928bd922.jpg",
+    "/images/venue-interior.png"
   ]
 }
 
