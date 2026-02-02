@@ -284,25 +284,25 @@ function AboutSection() {
     {
       icon: Users,
       title: 'Free Spectating',
-      description: 'Watch the best yo-yo players compete at no cost',
+      description: 'Watch the best yo-yo players compete at no cost.',
       glowColor: 'grass',
     },
     {
       icon: Building2,
       title: 'Historic Venue',
-      description: 'Held at the beautiful Chico Women\'s Club',
+      description: 'Held at the Chico Women\'s Club.',
       glowColor: 'bear',
     },
     {
       icon: Trophy,
       title: 'Multiple Divisions',
-      description: 'Categories for all skill levels and styles',
+      description: 'Categories for all skill levels and styles.',
       glowColor: 'grass',
     },
     {
       icon: Star,
       title: 'National Yo-Yo Museum',
-      description: 'Visit the nearby museum and yo-yo history',
+      description: 'Visit the nearby National Yo-Yo Museum.',
       glowColor: 'cal',
     },
   ]
