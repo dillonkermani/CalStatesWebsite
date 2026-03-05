@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { Building, MapPin, Car, Plane, ParkingCircle, Clock, Bell } from 'lucide-react'
-import { travel, alternateHotels } from '../data/lodging'
+import { Building, MapPin, Car, Plane, ParkingCircle, Clock, ExternalLink, Phone } from 'lucide-react'
+import { hotel, travel, alternateHotels } from '../data/lodging'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
 import GradientText from '../components/ui/GradientText'
@@ -36,77 +36,81 @@ function LodgingPage() {
           </p>
         </AnimatedSection>
 
-        {/* Lodging TBD Notice */}
+        {/* Official Hotel Block */}
         <AnimatedSection animation="fadeUp" delay={0.1} className="mb-12">
           <GlowCard glowColor="gold" className="max-w-3xl mx-auto">
-            <div className="p-8 text-center">
-              <div className={`w-20 h-20 mx-auto rounded-2xl flex items-center justify-center mb-6 ${
-                isDark
-                  ? 'bg-gradient-to-br from-gold/20 to-gold-dark/20'
-                  : 'bg-gradient-to-br from-gold/10 to-gold-dark/10'
-              }`}>
-                <Bell className="w-10 h-10 text-gold" />
+            <div className="p-8">
+              <div className="flex items-center gap-4 mb-6">
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0 ${
+                  isDark
+                    ? 'bg-gradient-to-br from-gold/20 to-gold-dark/20'
+                    : 'bg-gradient-to-br from-gold/10 to-gold-dark/10'
+                }`}>
+                  <Building className="w-8 h-8 text-gold" />
+                </div>
+                <div>
+                  <h2 className={`text-2xl md:text-3xl font-display font-bold ${
+                    isDark ? 'text-white' : 'text-surface-900'
+                  }`}>
+                    {hotel.name}
+                  </h2>
+                  <p className={`text-sm mt-1 ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
+                    Official Contest Hotel
+                  </p>
+                </div>
               </div>
-              <h2 className={`text-2xl md:text-3xl font-display font-bold mb-4 ${
-                isDark ? 'text-white' : 'text-surface-900'
-              }`}>
-                2026 Hotel Block Coming Soon
-              </h2>
-              <p className={`text-lg mb-6 ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-                We're currently working on securing a hotel room block for the 2026 contest.
-                Check back soon for official partner hotel information and discounted rates!
-              </p>
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                {hotel.features.map((feature) => (
+                  <div
+                    key={feature}
+                    className={`flex items-start gap-2 p-3 rounded-lg ${
+                      isDark ? 'bg-surface-700/30' : 'bg-light-100'
+                    }`}
+                  >
+                    <div className="w-2 h-2 rounded-full bg-gold mt-1.5 flex-shrink-0" />
+                    <span className={`text-sm ${isDark ? 'text-white/80' : 'text-surface-700'}`}>
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className={`flex items-center gap-2 mb-6 p-3 rounded-lg border ${
                 isDark
-                  ? 'bg-surface-700/50 border-white/10'
-                  : 'bg-white border-light-300 shadow-sm'
+                  ? 'bg-gold/10 border-gold/20'
+                  : 'bg-gold/5 border-gold/20'
               }`}>
-                <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                <span className={`text-sm ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-                  Lodging details to be announced
+                <Clock className="w-4 h-4 text-gold flex-shrink-0" />
+                <span className={`text-sm font-medium ${isDark ? 'text-white/80' : 'text-surface-700'}`}>
+                  Booking deadline: <span className="text-gold font-bold">{hotel.bookingDeadline}</span>
                 </span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href={hotel.bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gold text-surface-900 font-semibold hover:bg-gold-dark transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Book Online
+                </a>
+                <a
+                  href={`tel:${hotel.phone}`}
+                  className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl border font-semibold transition-colors ${
+                    isDark
+                      ? 'border-white/20 text-white hover:bg-white/5'
+                      : 'border-light-300 text-surface-900 hover:bg-light-100'
+                  }`}
+                >
+                  <Phone className="w-4 h-4" />
+                  Call Hotel
+                </a>
               </div>
             </div>
           </GlowCard>
-        </AnimatedSection>
-
-        {/* Nearby Hotels - General Reference */}
-        <AnimatedSection animation="fadeUp" delay={0.15} className="mb-12">
-          <div className="max-w-3xl mx-auto">
-            <h3 className={`text-xl font-display font-bold mb-2 text-center ${
-              isDark ? 'text-white' : 'text-surface-900'
-            }`}>
-              Hotels Near the Venue
-            </h3>
-            <p className={`text-center mb-6 ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-              While we finalize the official hotel block, here are some nearby options to consider:
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {alternateHotels.map((altHotel) => (
-                <div
-                  key={altHotel.name}
-                  className={`p-4 rounded-xl border ${
-                    isDark
-                      ? 'bg-surface-700/30 border-white/5'
-                      : 'bg-white border-light-300'
-                  }`}
-                >
-                  <h4 className={`font-semibold mb-2 ${isDark ? 'text-white' : 'text-surface-900'}`}>
-                    {altHotel.name}
-                  </h4>
-                  <p className={`text-sm mb-1 ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-                    {altHotel.distance}
-                  </p>
-                  <a
-                    href={`tel:${altHotel.phone}`}
-                    className="text-grass text-sm hover:underline"
-                  >
-                    {altHotel.phone}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
         </AnimatedSection>
 
         {/* Travel & Parking Info Grid */}
