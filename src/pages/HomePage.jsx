@@ -257,15 +257,19 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="mt-12 flex flex-wrap items-center justify-center gap-4"
           >
-            <Link to="/schedule">
+            <a
+              href="https://nyyl.org/yoyo-contests/2026-california-state-yo-yo-contest-competitor-registration-and-music-upload/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="primary" size="lg">
+                Register Now
+              </Button>
+            </a>
+            <Link to="/schedule">
+              <Button variant="secondary" size="lg">
                 <Calendar className="w-5 h-5" />
                 View Schedule
-              </Button>
-            </Link>
-            <Link to="/compete">
-              <Button variant="secondary" size="lg">
-                Learn More
               </Button>
             </Link>
           </motion.div>

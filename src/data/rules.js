@@ -18,14 +18,15 @@ export const divisions = [
     name: "X-Division",
     icon: "Zap",
     eligibility: "2A, 3A, 4A, and 5A styles",
-    format: "Style-specific scoring with multipliers per 2024 NYYL ruleset",
+    format: "2-minute freestyle, no prelims — straight to finals",
     description: "Multi-style competition for diverse yo-yo techniques",
     details: [
+      "2-minute freestyles with no preliminary round",
       "2A: Two-handed looping tricks",
       "3A: Two-handed string tricks (two yo-yos)",
       "4A: Offstring (yo-yo not attached to string)",
       "5A: Counterweight (freehand) style",
-      "Each style has specific score multipliers"
+      "Style-specific scoring with multipliers per 2024 NYYL ruleset"
     ]
   },
   {

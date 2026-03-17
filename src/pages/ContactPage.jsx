@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Mail, Send, Check, Copy, Users, ExternalLink } from 'lucide-react'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../firebase'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
 import Button from '../components/ui/Button'
@@ -20,6 +22,7 @@ function ContactForm() {
   const [errors, setErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -61,15 +64,22 @@ function ContactForm() {
     }
 
     setIsSubmitting(true)
+    setSubmitError('')
 
-    // Simulate form submission delay
-    await new Promise((resolve) => setTimeout(resolve, 1000))
-
-    // Form is ready for backend integration
-    console.log('Contact form data:', formData)
-
-    setIsSubmitting(false)
-    setIsSubmitted(true)
+    try {
+      await addDoc(collection(db, 'contact-messages'), {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        createdAt: serverTimestamp(),
+      })
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error('Error submitting contact form:', err)
+      setSubmitError('Something went wrong. Please email us directly at california.state.yoyo@gmail.com')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -191,6 +201,10 @@ function ContactForm() {
           </p>
         )}
       </div>
+
+      {submitError && (
+        <p className="text-red-400 text-sm">{submitError}</p>
+      )}
 
       {/* Submit Button */}
       <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">

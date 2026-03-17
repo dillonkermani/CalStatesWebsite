@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Trophy, Zap, Sparkles, Music, Clock, AlertCircle } from 'lucide-react'
+import { Trophy, Zap, Sparkles, Music, Clock, AlertCircle, ExternalLink } from 'lucide-react'
 import { divisions } from '../data/rules'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
@@ -80,14 +80,27 @@ function CompetePage() {
                 isDark ? 'glass-strong' : 'bg-white/90 border border-light-300 rounded-2xl'
               }`}>
                 <div className="flex items-center justify-center gap-3 mb-3">
-                  <Clock className="w-6 h-6 text-grass" />
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-grass opacity-75" />
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-grass" />
+                  </span>
                   <span className="text-lg font-display font-bold text-grass uppercase tracking-wider">
-                    Registration Opening Soon
+                    Registration & Music Upload Now Open
                   </span>
                 </div>
-                <p className={isDark ? 'text-white/70' : 'text-surface-600'}>
-                  Registration for Cal States 2026 will be opening soon. Check back for updates!
+                <p className={`mb-5 ${isDark ? 'text-white/70' : 'text-surface-600'}`}>
+                  Competitor registration and music upload for Cal States 2026 are now live!
                 </p>
+                <a
+                  href="https://nyyl.org/yoyo-contests/2026-california-state-yo-yo-contest-competitor-registration-and-music-upload/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="primary" size="lg">
+                    <ExternalLink className="w-5 h-5" />
+                    Register & Upload Music
+                  </Button>
+                </a>
                 <div className={`mt-4 flex items-center justify-center gap-2 text-sm ${
                   isDark ? 'text-white/50' : 'text-surface-500'
                 }`}>
@@ -233,7 +246,7 @@ function CompetePage() {
                       All competitors must submit their freestyle music before the event.
                       Music must be appropriate for all audiences.
                     </p>
-                    <ul className={`space-y-2 text-sm ${isDark ? 'text-white/60' : 'text-surface-500'}`}>
+                    <ul className={`space-y-2 text-sm mb-6 ${isDark ? 'text-white/60' : 'text-surface-500'}`}>
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-grass" />
                         MP3 format preferred (320kbps recommended)
@@ -247,6 +260,15 @@ function CompetePage() {
                         Backup copy will be available at check-in
                       </li>
                     </ul>
+                    <a
+                      href="https://nyyl.org/yoyo-contests/2026-california-state-yo-yo-contest-competitor-registration-and-music-upload/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-cal-red hover:text-cal-red/80 transition-colors font-medium"
+                    >
+                      Upload Your Music
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
               </div>

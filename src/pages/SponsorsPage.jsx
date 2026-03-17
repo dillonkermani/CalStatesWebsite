@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Handshake, Mail, Phone, Building2, CheckCircle } from 'lucide-react'
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../firebase'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
 import Button from '../components/ui/Button'
@@ -45,15 +47,38 @@ function SponsorForm({ isDark }) {
     return newErrors
   }
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
+
+  const handleSubmit = async (e) => {
     e.preventDefault()
     const newErrors = validateForm()
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors)
       return
     }
-    console.log('Sponsor form data:', formData)
-    setIsSubmitted(true)
+
+    setIsSubmitting(true)
+    setSubmitError('')
+
+    try {
+      await addDoc(collection(db, 'sponsorship-inquiries'), {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        vendorTable: formData.vendorTable,
+        notes: formData.notes,
+        createdAt: serverTimestamp(),
+      })
+      setIsSubmitted(true)
+    } catch (err) {
+      console.error('Error submitting sponsorship inquiry:', err)
+      setSubmitError('Something went wrong. Please email us directly at california.state.yoyo@gmail.com')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (isSubmitted) {
@@ -208,9 +233,26 @@ function SponsorForm({ isDark }) {
         />
       </div>
 
-      <Button type="submit" className="w-full sm:w-auto">
-        <Handshake className="w-5 h-5" />
-        Submit Inquiry
+      {submitError && (
+        <p className="text-red-400 text-sm">{submitError}</p>
+      )}
+
+      <Button type="submit" disabled={isSubmitting} className="w-full sm:w-auto">
+        {isSubmitting ? (
+          <>
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
+              className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full"
+            />
+            Submitting...
+          </>
+        ) : (
+          <>
+            <Handshake className="w-5 h-5" />
+            Submit Inquiry
+          </>
+        )}
       </Button>
     </form>
   )
