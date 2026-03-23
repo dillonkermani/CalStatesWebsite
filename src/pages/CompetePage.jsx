@@ -101,11 +101,19 @@ function CompetePage() {
                     Register & Upload Music
                   </Button>
                 </a>
-                <div className={`mt-4 flex items-center justify-center gap-2 text-sm ${
+                <div className={`mt-4 flex flex-col items-center gap-2 text-sm ${
                   isDark ? 'text-white/50' : 'text-surface-500'
                 }`}>
-                  <Clock className="w-4 h-4" />
-                  <span>Competition Date: April 25th, 2026</span>
+                  <div className="flex items-center gap-2">
+                    <Clock className="w-4 h-4" />
+                    <span>Competition Date: April 25th, 2026</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-cal-red" />
+                    <span className={`font-semibold ${isDark ? 'text-white/70' : 'text-surface-700'}`}>
+                      Registration & Music Upload Deadline: Wednesday, April 22nd, 2026 at Midnight PST
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -258,6 +266,10 @@ function CompetePage() {
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-grass" />
                         Backup copy will be available at check-in
+                      </li>
+                      <li className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-cal-red" />
+                        <span className="font-semibold">Deadline: Wednesday, April 22nd, 2026 at Midnight PST</span>
                       </li>
                     </ul>
                     <a
