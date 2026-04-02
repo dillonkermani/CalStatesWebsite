@@ -3,18 +3,18 @@ export const hotel = {
   address: "685 Manzanita Court, Chico, California, 95926",
   phone: "+1 530-345-2491",
   distance: "5 minute drive from Chico Women's Club",
-  bookingDeadline: "March 24, 2026",
+  bookingDeadline: "April 10, 2026",
   bookingDates: "April 24-25, 2026",
   pricePerNight: "$145/night",
   bookingUrl: "https://www.hilton.com/en/attend-my-event/cicccdt-ycb-9853b514-4a5b-4169-ab3b-c4ec35004c19/",
   features: [
-    "$145 per night with complimentary breakfast included",
+    "$145 per night with complimentary breakfast included ($30 discount from market price)",
     "Book online via the link below or call the hotel directly",
     "Mention the Cal States room block when calling",
     "Free parking at hotel",
-    "Deadline to book: March 24th"
+    "Booking deadline extended to April 10th"
   ],
-  note: "Book by March 24th to secure your spot in the room block!"
+  note: "Booking deadline extended to April 10th — secure your spot in the room block!"
 }
 
 export const travel = {
