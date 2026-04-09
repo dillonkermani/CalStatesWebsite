@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Calendar, MapPin, Trophy, Users, ChevronDown, Star, Clock, Building2, HandHeart, ClipboardCheck, Camera, Wrench } from 'lucide-react'
+import { Calendar, MapPin, Trophy, Users, ChevronDown, Star, Clock, Building2, HandHeart, ClipboardCheck, Camera, Wrench, AlertCircle } from 'lucide-react'
 import { useEffect } from 'react'
 import CountdownTimer from '../components/ui/CountdownTimer'
 import GlowCard from '../components/ui/GlowCard'
@@ -273,6 +273,19 @@ function HeroSection() {
               </Button>
             </Link>
           </motion.div>
+
+          {/* Registration & Music Upload Deadline */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.9 }}
+            className={`mt-5 flex items-center justify-center gap-2 text-sm ${
+              isDark ? 'text-white/50' : 'text-surface-500'
+            }`}
+          >
+            <AlertCircle className="w-4 h-4 text-cal-red" />
+            <span>Registration & Music Upload Deadline: April 22, 2026 at Midnight PST</span>
+          </motion.p>
         </div>
       </Container>
 
