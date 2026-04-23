@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import { Trophy, Zap, Sparkles, Music, Clock, AlertCircle, ExternalLink } from 'lucide-react'
+import { Trophy, Zap, Sparkles, Music, Clock, AlertCircle } from 'lucide-react'
 import { divisions } from '../data/rules'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
@@ -73,46 +73,31 @@ function CompetePage() {
             <div className="relative rounded-2xl overflow-hidden">
               <div className={`absolute inset-0 ${
                 isDark
-                  ? 'bg-gradient-to-r from-grass/20 via-grass-dark/20 to-grass/20'
-                  : 'bg-gradient-to-r from-grass/10 via-grass-dark/10 to-grass/10'
+                  ? 'bg-gradient-to-r from-cal-red/20 via-cal-red/20 to-cal-red/20'
+                  : 'bg-gradient-to-r from-cal-red/10 via-cal-red/10 to-cal-red/10'
               }`} />
               <div className={`relative p-6 md:p-8 text-center ${
                 isDark ? 'glass-strong' : 'bg-white/90 border border-light-300 rounded-2xl'
               }`}>
                 <div className="flex items-center justify-center gap-3 mb-3">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-grass opacity-75" />
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-grass" />
-                  </span>
-                  <span className="text-lg font-display font-bold text-grass uppercase tracking-wider">
-                    Registration & Music Upload Now Open
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-cal-red" />
+                  <span className="text-lg font-display font-bold text-cal-red uppercase tracking-wider">
+                    Registration & Music Upload Closed
                   </span>
                 </div>
                 <p className={`mb-5 ${isDark ? 'text-white/70' : 'text-surface-600'}`}>
-                  Competitor registration and music upload for Cal States 2026 are now live!
+                  Competitor registration and music upload for Cal States 2026 are now closed. Thank you to everyone who signed up — see you on competition day!
                 </p>
-                <a
-                  href="https://nyyl.org/yoyo-contests/2026-california-state-yo-yo-contest-competitor-registration-and-music-upload/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="primary" size="lg">
-                    <ExternalLink className="w-5 h-5" />
-                    Register & Upload Music
-                  </Button>
-                </a>
+                <Button variant="primary" size="lg" disabled>
+                  <AlertCircle className="w-5 h-5" />
+                  Registration Closed
+                </Button>
                 <div className={`mt-4 flex flex-col items-center gap-2 text-sm ${
                   isDark ? 'text-white/50' : 'text-surface-500'
                 }`}>
                   <div className="flex items-center gap-2">
                     <Clock className="w-4 h-4" />
                     <span>Competition Date: April 25th, 2026</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 text-cal-red" />
-                    <span className={`font-semibold ${isDark ? 'text-white/70' : 'text-surface-700'}`}>
-                      Registration & Music Upload Deadline: Wednesday, April 22nd, 2026 at Midnight PST
-                    </span>
                   </div>
                 </div>
               </div>
@@ -269,18 +254,15 @@ function CompetePage() {
                       </li>
                       <li className="flex items-center gap-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-cal-red" />
-                        <span className="font-semibold">Deadline: Wednesday, April 22nd, 2026 at Midnight PST</span>
+                        <span className="font-semibold">Music upload has closed (deadline was April 22nd, 2026 at Midnight PST)</span>
                       </li>
                     </ul>
-                    <a
-                      href="https://nyyl.org/yoyo-contests/2026-california-state-yo-yo-contest-competitor-registration-and-music-upload/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-cal-red hover:text-cal-red/80 transition-colors font-medium"
-                    >
-                      Upload Your Music
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                    <span className={`inline-flex items-center gap-2 text-sm font-medium ${
+                      isDark ? 'text-white/40' : 'text-surface-400'
+                    }`}>
+                      <AlertCircle className="w-4 h-4" />
+                      Music upload is now closed
+                    </span>
                   </div>
                 </div>
               </div>

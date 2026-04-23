@@ -257,15 +257,9 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="mt-12 flex flex-wrap items-center justify-center gap-4"
           >
-            <a
-              href="https://nyyl.org/yoyo-contests/2026-california-state-yo-yo-contest-competitor-registration-and-music-upload/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button variant="primary" size="lg">
-                Register Now
-              </Button>
-            </a>
+            <Button variant="primary" size="lg" disabled>
+              Registration Closed
+            </Button>
             <Link to="/schedule">
               <Button variant="secondary" size="lg">
                 <Calendar className="w-5 h-5" />
@@ -274,7 +268,7 @@ function HeroSection() {
             </Link>
           </motion.div>
 
-          {/* Registration & Music Upload Deadline */}
+          {/* Registration Closed Notice */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -284,7 +278,7 @@ function HeroSection() {
             }`}
           >
             <AlertCircle className="w-4 h-4 text-cal-red" />
-            <span>Registration & Music Upload Deadline: April 22, 2026 at Midnight PST</span>
+            <span>Registration &amp; music upload are now closed. See you April 25th!</span>
           </motion.p>
         </div>
       </Container>
