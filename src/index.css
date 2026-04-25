@@ -147,6 +147,16 @@
     }
   }
 
+  /* Hide scrollbar but keep functionality (used in horizontal tab strips) */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   /* Geometric pattern overlay */
   .geo-pattern {
     background-image:

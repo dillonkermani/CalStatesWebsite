@@ -9,6 +9,7 @@ import HomePage from './pages/HomePage'
 import SchedulePage from './pages/SchedulePage'
 import LocationPage from './pages/LocationPage'
 import CompetePage from './pages/CompetePage'
+import CompetitorsPage from './pages/CompetitorsPage'
 import RulesPage from './pages/RulesPage'
 import ResultsPage from './pages/ResultsPage'
 import LodgingPage from './pages/LodgingPage'
@@ -35,6 +36,7 @@ function App() {
               <Route path="/schedule" element={<SchedulePage />} />
               <Route path="/location" element={<LocationPage />} />
               <Route path="/compete" element={<CompetePage />} />
+              <Route path="/competitors" element={<CompetitorsPage />} />
               <Route path="/rules" element={<RulesPage />} />
               <Route path="/results" element={<ResultsPage />} />
               <Route path="/lodging" element={<LodgingPage />} />

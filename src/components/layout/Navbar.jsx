@@ -12,7 +12,10 @@ const navLinks = [
   {
     name: 'Compete',
     path: '/compete',
-    dropdown: [{ name: 'Rules', path: '/rules' }],
+    dropdown: [
+      { name: 'Competitors', path: '/competitors' },
+      { name: 'Rules', path: '/rules' },
+    ],
   },
   { name: 'Results', path: '/results' },
   { name: 'Lodging', path: '/lodging' },
