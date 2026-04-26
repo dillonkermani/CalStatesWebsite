@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Trophy, Calendar } from 'lucide-react'
+import { Trophy, ExternalLink } from 'lucide-react'
 import Container from '../components/ui/Container'
 import GlowCard from '../components/ui/GlowCard'
 import GradientText from '../components/ui/GradientText'
@@ -30,12 +30,11 @@ function ResultsPage() {
             <GradientText>RESULTS</GradientText>
           </h1>
           <p className={`text-lg max-w-2xl mx-auto ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-            Official results from the California State Yo-Yo Contest.
-            Check back after the 2026 contest for this year's results!
+            Official results from the 2026 California State Yo-Yo Contest.
           </p>
         </AnimatedSection>
 
-        {/* 2026 Results Coming Soon */}
+        {/* 2026 Results */}
         <AnimatedSection animation="fadeUp" delay={0.1}>
           <GlowCard glowColor="gold" className="max-w-2xl mx-auto">
             <div className="p-8 text-center">
@@ -44,27 +43,30 @@ function ResultsPage() {
                   ? 'bg-gradient-to-br from-gold/20 to-gold-dark/20'
                   : 'bg-gradient-to-br from-gold/10 to-gold-dark/10'
               }`}>
-                <Calendar className="w-10 h-10 text-gold" />
+                <Trophy className="w-10 h-10 text-gold" />
               </div>
               <h2 className={`text-2xl md:text-3xl font-display font-bold mb-4 ${
                 isDark ? 'text-white' : 'text-surface-900'
               }`}>
-                2026 Results Coming Soon
+                2026 Results Are Live!
               </h2>
               <p className={`text-lg mb-6 ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-                The 2026 California State Yo-Yo Contest hasn't happened yet!
-                Results will be posted here after the competition on April 25, 2026.
+                The 2026 California State Yo-Yo Contest has concluded.
+                View the official results from April 25, 2026 below.
               </p>
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border ${
-                isDark
-                  ? 'bg-surface-700/50 border-white/10'
-                  : 'bg-white border-light-300 shadow-sm'
-              }`}>
-                <div className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-                <span className={`text-sm ${isDark ? 'text-white/60' : 'text-surface-600'}`}>
-                  Contest Date: April 25, 2026
-                </span>
-              </div>
+              <a
+                href="https://compete.yoyocontest.com/results/2026-california-state-yo-yo-contest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-200 ${
+                  isDark
+                    ? 'bg-gold/20 border border-gold/40 text-gold hover:bg-gold/30 hover:border-gold/60'
+                    : 'bg-gold/10 border border-gold/30 text-gold-dark hover:bg-gold/20 hover:border-gold/50'
+                }`}
+              >
+                <span>View Official Results</span>
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </div>
           </GlowCard>
         </AnimatedSection>
